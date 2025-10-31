@@ -4,6 +4,8 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	// ⚠️ ДОБАВЬТЕ ЭТУ СТРОКУ для GitHub Pages
+	base: '/your-repo-name/', // Замените 'your-repo-name' на название вашего репозитория
 	plugins: [
 		react({
 			jsxRuntime: 'automatic',
@@ -19,9 +21,9 @@ export default defineConfig({
 			scss: {
 				// Если хотите автоматически импортировать переменные и миксины в каждый SCSS файл
 				additionalData: `
-					@use "@/styles/variables" as *;
-					@use "@/styles/mixins" as *;
-				`,
+          @use "@/styles/variables" as *;
+          @use "@/styles/mixins" as *;
+        `,
 			},
 		},
 		modules: {
