@@ -3,13 +3,21 @@ import path from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	base: '/https://github.com/kyrban2/react-vite2/', // ⚠️ ЗАМЕНИТЕ на ваше имя репозитория
-	plugins: [react()],
+	// ✅ ПРАВИЛЬНАЯ НАСТРОЙКА BASE для GitHub Pages
+	base: '/react-vite2/', // ⚠️ Замените на имя вашего репозитория (только имя, без github.com)
+
+	plugins: [
+		react({
+			jsxRuntime: 'automatic',
+		}),
+	],
+
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
 	},
+
 	css: {
 		preprocessorOptions: {
 			scss: {
@@ -20,10 +28,12 @@ export default defineConfig({
 			},
 		},
 	},
+
 	server: {
 		port: 3000,
 		open: true,
 	},
+
 	build: {
 		outDir: 'dist',
 		sourcemap: true,
